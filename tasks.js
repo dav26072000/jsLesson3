@@ -95,10 +95,10 @@ console.log(parseIntFunction("-5000"));
 
 // console.log(parseFloatFunction("00123321.123"));
 
-function parseInteger(value, base) {
-  let result = [];
-  if (/^-?(0b)?(0o)?(0x)?([0-9])+/.test(value)) {
-    result = /-?(0b)?(0o)?(0x)?([0-9])+/.exec(value);
+function parseFloating(string, base) {
+  let result;
+  if (/^-?(0b)?(0o)?(0x)*([0-9])+.([0-9])+/.test(string)) {
+    result = string.match(/^-?(0b)?(0o)?(0x)*([0-9])+.([0-9])+/);
   }
-  return result ? Number(result[0]).toString(base) : NaN;
+  return result ? Number(result[0].toString(base)) : NaN;
 }

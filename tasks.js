@@ -61,4 +61,44 @@ function parseIntFunction(str, base) {
   }
 }
 
-console.log(parseIntFunction("011110", 2));
+console.log(parseIntFunction("-5000"));
+
+// Write logic that implements parseFloat
+
+// function parseFloatFunction(str) {
+//   str = str.trim().split("");
+//   let newStr = [];
+//   let zeroInStart = false;
+//   let firstPoint = false;
+//   for (let i = 0; i < str.length; i++) {
+//     if (Number(str[i]) === 0 && zeroInStart === false) {
+//       continue;
+//     }
+//     if (!Number(str[i]) && zeroInStart === false) {
+//       return NaN;
+//     }
+//     if (!Number(str[i]) && zeroInStart === true) {
+//       break;
+//     }
+//     if (str[i] === "." && firstPoint === false) {
+//       firstPoint = true;
+//     }
+//     if (str[i] === "." && firstPoint === true) {
+//       break;
+//     }
+//     newStr.push(str[i]);
+//     zeroInStart = true;
+//   }
+
+//   return newStr;
+// }
+
+// console.log(parseFloatFunction("00123321.123"));
+
+function parseInteger(value, base) {
+  let result = [];
+  if (/^-?(0b)?(0o)?(0x)?([0-9])+/.test(value)) {
+    result = /-?(0b)?(0o)?(0x)?([0-9])+/.exec(value);
+  }
+  return result ? Number(result[0]).toString(base) : NaN;
+}
